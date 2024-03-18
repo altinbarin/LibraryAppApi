@@ -15,6 +15,7 @@ namespace Core.DataAccess.EntityFramework
                 context.Add(entity);
 
                 context.SaveChanges();
+
             }
         }
 

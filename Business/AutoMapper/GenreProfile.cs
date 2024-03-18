@@ -8,9 +8,10 @@ namespace Business.AutoMapper
     {
         public GenreProfile()
         {
-            CreateMap<Genre, GenreCreateDTO>();
-            CreateMap<Genre, GenreUpdateDTO>();
+            CreateMap<GenreCreateDTO, Genre>();
+            CreateMap<GenreUpdateDTO, Genre>();
             CreateMap<Genre, GenreListDTO>();
+            CreateMap<Genre, GenreDetailDTO>();
         }
     }
 }

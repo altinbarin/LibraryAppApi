@@ -8,9 +8,10 @@ namespace Business.AutoMapper
     {
         public BorrowedBookProfile()
         {
-            CreateMap<BorrowedBook, BorrowedBookCreateDTO>();
+            CreateMap<BorrowedBookCreateDTO, BorrowedBook>();
+            CreateMap<BorrowedBookUpdateDTO, BorrowedBook>();
             CreateMap<BorrowedBook, BorrowedBookListDTO>();
-            CreateMap<BorrowedBook, BorrowedBookUpdateDTO>();
+            CreateMap<BorrowedBook, BorrowedBookDetailDTO>();
         }
     }
 }

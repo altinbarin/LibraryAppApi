@@ -8,9 +8,10 @@ namespace Business.AutoMapper
     {
         public MemberProfile()
         {
-            CreateMap<Member, MemberUpdateDTO>();
+            CreateMap<MemberCreateDTO, Member>();
+            CreateMap<MemberUpdateDTO, Member>();
             CreateMap<Member, MemberListDTO>();
-            CreateMap<Member, MemberCreateDTO>();
+            CreateMap<Member, MemberDetailDTO>();
         }
     }
 }

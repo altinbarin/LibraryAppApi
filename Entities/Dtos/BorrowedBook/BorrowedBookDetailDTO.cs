@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Enums
+namespace Entities.Dtos.BorrowedBook
 {
-    public enum Status
+    public class BorrowedBookDetailDTO
     {
-        Active = 1,
-        Passive = 2,
+        public DateTime CreatedDate { get; set; }
+
     }
 }

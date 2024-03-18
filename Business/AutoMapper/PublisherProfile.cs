@@ -8,9 +8,10 @@ namespace Business.AutoMapper
     {
         public PublisherProfile()
         {
-            CreateMap<Publisher, PublisherCreateDTO>();
+            CreateMap<PublisherCreateDTO, Publisher>();
+            CreateMap<PublisherUpdateDTO, Publisher>();
             CreateMap<Publisher, PublisherListDTO>();
-            CreateMap<Publisher, PublisherUpdateDTO>();
+            CreateMap<Publisher, PublisherDetailDTO>();
         }
     }
 }

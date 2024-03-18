@@ -1,10 +1,14 @@
 using Business.DependencyResolvers;
+using Business.Extensions;
+using Business.ValidationRules.FluentValidation;
 using DataAccess.DependencyInjection;
+using FluentValidation.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddBusinessServices()
-    .AddEfCoreServices(builder.Configuration);
+    .AddEfCoreServices(builder.Configuration)
+    .AddFluentValidationWithAssemblies();
 
 // Add services to the container.
 

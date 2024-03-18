@@ -30,18 +30,13 @@ namespace DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("CreatedBy")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("ModifiedBy")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("ModifiedDate")
+                    b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
@@ -49,8 +44,8 @@ namespace DataAccess.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Surname")
                         .IsRequired()
@@ -60,6 +55,56 @@ namespace DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Authors");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(6874),
+                            Name = "Cemal",
+                            Status = true,
+                            Surname = "Süreya"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(6877),
+                            Name = "Orhan",
+                            Status = true,
+                            Surname = "Kemal"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(6879),
+                            Name = "Sabahattin",
+                            Status = true,
+                            Surname = "Ali"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(6881),
+                            Name = "Rick",
+                            Status = true,
+                            Surname = "Riordan"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(6916),
+                            Name = "J.K.",
+                            Status = true,
+                            Surname = "Rowling"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(6918),
+                            Name = "Anonim",
+                            Status = true,
+                            Surname = "Anonim"
+                        });
                 });
 
             modelBuilder.Entity("Entities.Concrete.Book", b =>
@@ -73,11 +118,10 @@ namespace DataAccess.Migrations
                     b.Property<int>("AuthorId")
                         .HasColumnType("int");
 
-                    b.Property<string>("CreatedBy")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("GenreId")
@@ -87,11 +131,7 @@ namespace DataAccess.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("int");
 
-                    b.Property<string>("ModifiedBy")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("ModifiedDate")
+                    b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
@@ -107,8 +147,8 @@ namespace DataAccess.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
 
                     b.Property<int>("TotalStock")
                         .HasMaxLength(200)
@@ -123,6 +163,151 @@ namespace DataAccess.Migrations
                     b.HasIndex("PublisherId");
 
                     b.ToTable("Books");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AuthorId = 3,
+                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(8601),
+                            GenreId = 1,
+                            InStock = 5,
+                            Name = "Kürk Mantolu Madonna",
+                            PublisherId = 1,
+                            Section = "113",
+                            Status = true,
+                            TotalStock = 5
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AuthorId = 1,
+                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(8639),
+                            GenreId = 3,
+                            InStock = 2,
+                            Name = "Güz Bitiği",
+                            PublisherId = 2,
+                            Section = "113",
+                            Status = true,
+                            TotalStock = 2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AuthorId = 1,
+                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(8641),
+                            GenreId = 3,
+                            InStock = 1,
+                            Name = "On Üç Günün Mektupları",
+                            PublisherId = 1,
+                            Section = "113",
+                            Status = true,
+                            TotalStock = 1
+                        },
+                        new
+                        {
+                            Id = 4,
+                            AuthorId = 1,
+                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(8644),
+                            GenreId = 3,
+                            InStock = 1,
+                            Name = "Günübirlik",
+                            PublisherId = 2,
+                            Section = "113",
+                            Status = true,
+                            TotalStock = 1
+                        },
+                        new
+                        {
+                            Id = 5,
+                            AuthorId = 1,
+                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(8646),
+                            GenreId = 3,
+                            InStock = 1,
+                            Name = "Üvercinka",
+                            PublisherId = 2,
+                            Section = "113",
+                            Status = true,
+                            TotalStock = 1
+                        },
+                        new
+                        {
+                            Id = 6,
+                            AuthorId = 2,
+                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(8649),
+                            GenreId = 1,
+                            InStock = 3,
+                            Name = "72. Koğuş",
+                            PublisherId = 5,
+                            Section = "113",
+                            Status = true,
+                            TotalStock = 3
+                        },
+                        new
+                        {
+                            Id = 7,
+                            AuthorId = 2,
+                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(8651),
+                            GenreId = 1,
+                            InStock = 1,
+                            Name = "Tersine Dünya",
+                            PublisherId = 5,
+                            Section = "113",
+                            Status = true,
+                            TotalStock = 1
+                        },
+                        new
+                        {
+                            Id = 8,
+                            AuthorId = 2,
+                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(8653),
+                            GenreId = 1,
+                            InStock = 12,
+                            Name = "Percy Jackson",
+                            PublisherId = 3,
+                            Section = "110",
+                            Status = true,
+                            TotalStock = 12
+                        },
+                        new
+                        {
+                            Id = 9,
+                            AuthorId = 6,
+                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(8656),
+                            GenreId = 7,
+                            InStock = 19,
+                            Name = "1919'dan Günümüze Türkiye",
+                            PublisherId = 6,
+                            Section = "110",
+                            Status = true,
+                            TotalStock = 19
+                        },
+                        new
+                        {
+                            Id = 10,
+                            AuthorId = 5,
+                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(8658),
+                            GenreId = 1,
+                            InStock = 1,
+                            Name = "Yüzüklerin Efendisi",
+                            PublisherId = 4,
+                            Section = "110",
+                            Status = true,
+                            TotalStock = 1
+                        },
+                        new
+                        {
+                            Id = 11,
+                            AuthorId = 6,
+                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(8660),
+                            GenreId = 4,
+                            InStock = 1,
+                            Name = "La Fontaine Masalları",
+                            PublisherId = 3,
+                            Section = "109",
+                            Status = true,
+                            TotalStock = 1
+                        });
                 });
 
             modelBuilder.Entity("Entities.Concrete.BorrowedBook", b =>
@@ -136,11 +321,10 @@ namespace DataAccess.Migrations
                     b.Property<int>("BookId")
                         .HasColumnType("int");
 
-                    b.Property<string>("CreatedBy")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("HoldDate")
@@ -149,18 +333,14 @@ namespace DataAccess.Migrations
                     b.Property<int>("MemberId")
                         .HasColumnType("int");
 
-                    b.Property<string>("ModifiedBy")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("ModifiedDate")
+                    b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("ReturnDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
@@ -179,18 +359,13 @@ namespace DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("CreatedBy")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("ModifiedBy")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("ModifiedDate")
+                    b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
@@ -198,12 +373,70 @@ namespace DataAccess.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
                     b.ToTable("Genres");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(1417),
+                            Name = "Roman",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(1419),
+                            Name = "Hikaye",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(1421),
+                            Name = "Şiir",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(1423),
+                            Name = "Fabl",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(1424),
+                            Name = "Masal",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(1426),
+                            Name = "Tiyatro",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(1428),
+                            Name = "Deneme",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(1429),
+                            Name = "Ansiklopedi",
+                            Status = true
+                        });
                 });
 
             modelBuilder.Entity("Entities.Concrete.Member", b =>
@@ -216,44 +449,111 @@ namespace DataAccess.Migrations
 
                     b.Property<string>("Address")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CreatedBy")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("ModifiedBy")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("ModifiedDate")
+                    b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Phone")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(11)
+                        .HasColumnType("nvarchar(11)");
 
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Surname")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("TCKNO")
+                        .IsRequired()
+                        .HasMaxLength(11)
+                        .HasColumnType("nvarchar(11)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Members");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Address = "İstanbul, Kadıköy",
+                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(3233),
+                            Email = "furkanaltinbarin@gmail.com",
+                            Name = "Furkan",
+                            Phone = "05431768274",
+                            Status = true,
+                            Surname = "Altınbarın",
+                            TCKNO = "20890834938"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Address = "İstanbul, Cevizlibağ",
+                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(3237),
+                            Email = "mehmetcatmakasli@mail.com",
+                            Name = "Mehmet",
+                            Phone = "05363235378",
+                            Status = true,
+                            Surname = "Çatmakaşlı",
+                            TCKNO = "55871434614"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Address = "İstanbul, Üsküdar",
+                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(3239),
+                            Email = "ahmetyilmaz@gmail.com",
+                            Name = "Ahmet",
+                            Phone = "05363235375",
+                            Status = true,
+                            Surname = "Yılmaz",
+                            TCKNO = "70726402020"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Address = "İstanbul, Kartal",
+                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(3242),
+                            Email = "ayseyilmaz@gmail.com",
+                            Name = "Ayşe",
+                            Phone = "05361031245",
+                            Status = true,
+                            Surname = "Yılmaz",
+                            TCKNO = "20697468440"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Address = "İstanbul, Avcılar",
+                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(3244),
+                            Email = "fatmakartal@gmail.com",
+                            Name = "Fatma",
+                            Phone = "05361031245",
+                            Status = true,
+                            Surname = "Kartal",
+                            TCKNO = "41354126398"
+                        });
                 });
 
             modelBuilder.Entity("Entities.Concrete.Publisher", b =>
@@ -269,11 +569,10 @@ namespace DataAccess.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
-                    b.Property<string>("CreatedBy")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
@@ -281,11 +580,7 @@ namespace DataAccess.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("ModifiedBy")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("ModifiedDate")
+                    b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
@@ -298,12 +593,74 @@ namespace DataAccess.Migrations
                         .HasMaxLength(11)
                         .HasColumnType("nvarchar(11)");
 
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
                     b.ToTable("Publishers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Address = "İstanbul",
+                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(4789),
+                            Email = "everest@mail.com",
+                            Name = "Everest",
+                            Phone = "02121234567",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Address = "İstanbul",
+                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(4792),
+                            Email = "dogan@gmail.com",
+                            Name = "Doğan Kitap",
+                            Phone = "02121234567",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Address = "İstanbul",
+                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(4794),
+                            Email = "isbankasi@mail.com",
+                            Name = "İş Bankası",
+                            Phone = "02121234567",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Address = "İstanbul",
+                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(4796),
+                            Email = "yapikredi@mail.com",
+                            Name = "Yapı Kredi",
+                            Phone = "02121234567",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Address = "İstanbul",
+                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(4798),
+                            Email = "timas@mail.com",
+                            Name = "Timaş",
+                            Phone = "02121234567",
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Address = "Ankara",
+                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(4800),
+                            Email = "tubitak@mail.com",
+                            Name = "Tubitak",
+                            Phone = "03121234567",
+                            Status = true
+                        });
                 });
 
             modelBuilder.Entity("Entities.Concrete.Book", b =>

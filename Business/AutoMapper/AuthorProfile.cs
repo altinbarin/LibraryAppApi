@@ -8,9 +8,10 @@ namespace Business.AutoMapper
     {
         public AuthorProfile()
         {
-            CreateMap<Author, AuthorCreateDTO>();
+            CreateMap<AuthorCreateDTO, Author>();
+            CreateMap<AuthorUpdateDTO, Author>();
             CreateMap<Author, AuthorListDTO>();
-            CreateMap<Author, AuthorUpdateDTO>();
+            CreateMap<Author, AuthorDetailDTO>();
         }
     }
 }

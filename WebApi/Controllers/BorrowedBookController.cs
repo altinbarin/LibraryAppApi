@@ -21,5 +21,12 @@ namespace WebApi.Controllers
             var result = _borrowedBookService.GetAll();
             return result.IsSuccess ? Ok(result) : BadRequest(result);
         }
+
+        [HttpGet("getborrowedbookbyid")]
+        public IActionResult GetById(int id)
+        {
+            var result = _borrowedBookService.GetById(id);
+            return result.IsSuccess ? Ok(result) : BadRequest(result);
+        }
     }
 }

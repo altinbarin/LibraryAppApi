@@ -14,5 +14,13 @@ namespace Business.Abstract
         /// </summary>
         /// <returns></returns>
         IResult GetAll();
+
+
+        /// <summary>
+        /// Belirtilen ödünç alınan kitapların detaylarını getirir.
+        /// </summary>
+        /// <param name="id">Detayları alınacak ödünç alınan kitabın kimliği.</param>
+        /// <returns>İşlemin başarı durumunu ve verileri içeren bir sonuç nesnesi döndürür.</returns>
+        IResult GetById(int id);
     }
 }

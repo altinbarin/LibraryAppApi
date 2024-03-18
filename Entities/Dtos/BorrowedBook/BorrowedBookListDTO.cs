@@ -8,6 +8,7 @@ namespace Entities.Dtos.BorrowedBook
 {
     public class BorrowedBookListDTO
     {
+        public DateTime CreatedDate { get; set; }
 
     }
 }

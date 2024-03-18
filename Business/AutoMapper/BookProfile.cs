@@ -8,9 +8,12 @@ namespace Business.AutoMapper
     {
         public BookProfile()
         {
-            CreateMap<Book,BookCreateDTO>();
+            CreateMap<BookCreateDTO, Book>();
+            CreateMap<BookUpdateDTO, Book>();
             CreateMap<Book,BookListDTO>();
-            CreateMap<Book,BookUpdateDTO>();
+            CreateMap<Book,BookDetailDTO>();
+
+
         }
     }
 }

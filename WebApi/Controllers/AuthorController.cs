@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Entities.Dtos.Author;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,6 +20,33 @@ namespace WebApi.Controllers
         public IActionResult GetAll()
         {
             var result = _authorService.GetAll();
+            return result.IsSuccess ? Ok(result) : BadRequest(result);
+        }
+
+        [HttpGet("getauthorbyid")]
+        public IActionResult GetById(int id)
+        {
+            var result = _authorService.GetById(id);
+            return result.IsSuccess ? Ok(result) : BadRequest(result);
+        }
+
+        [HttpPost("createauthor")]
+        public IActionResult Create([FromBody] AuthorCreateDTO authorCreateDto)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            
+            var result = _authorService.Create(authorCreateDto);
+            return result.IsSuccess ? Ok(result) : BadRequest(result);
+        }
+
+        [HttpPut("updateauthor")]
+        public IActionResult Update([FromBody] AuthorUpdateDTO authorUpdateDto)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            
+            var result = _authorService.Update(authorUpdateDto);
             return result.IsSuccess ? Ok(result) : BadRequest(result);
         }
     }
