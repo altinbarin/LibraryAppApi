@@ -7,14 +7,8 @@ using System.Threading.Tasks;
 
 namespace Entities.Concrete
 {
-    public class Member:BaseEntity
+    public class Member:BaseUser
     {
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public string Email { get; set; }
-        public string Phone { get; set; }
-        public string Address { get; set; }
-
 
 
         //public DateTime Birthday { get; set; }

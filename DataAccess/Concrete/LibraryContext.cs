@@ -13,7 +13,7 @@ namespace DataAccess.Concrete
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("");
+            optionsBuilder.UseSqlServer("Data Source=DESKTOP-PE0VBS8;Database=LibraryDbContext;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
         }
 
         public DbSet<Author> Authors { get; set; }
@@ -21,7 +21,9 @@ namespace DataAccess.Concrete
         public DbSet<Publisher> Publishers { get; set; }
         public DbSet<Member> Members { get; set; }
         public DbSet<Genre> Genres{ get; set; }
-        public DbSet<BooksOnHold> BooksOnHolds { get; set; }
+        public DbSet<BorrowedBook> BorrowedBooks { get; set; }
+
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

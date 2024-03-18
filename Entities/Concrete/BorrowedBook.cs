@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Entities.Concrete
 {
-    public class BooksOnHold:BaseEntity
+    public class BorrowedBook:BaseEntity
     {
         public Member Member { get; set; }
         public int MemberId { get; set; }

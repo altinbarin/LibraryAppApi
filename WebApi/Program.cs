@@ -1,4 +1,10 @@
+using Business.DependencyResolvers;
+using DataAccess.DependencyInjection;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddBusinessServices()
+    .AddEfCoreServices(builder.Configuration);
 
 // Add services to the container.
 

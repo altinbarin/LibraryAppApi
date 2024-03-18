@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
-    public interface IBooksOnHoldRepository:IEntityRepository<BooksOnHold>
+    public interface IBorrowedBookRepository:IEntityRepository<BorrowedBook>
     {
     }
 }

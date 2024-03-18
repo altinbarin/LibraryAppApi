@@ -10,5 +10,6 @@ namespace DataAccess.Abstract
 {
     public interface IBookRepository:IEntityRepository<Book>
     {
+
     }
 }

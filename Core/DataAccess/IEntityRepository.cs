@@ -10,7 +10,7 @@ namespace Core.DataAccess
 {
     public interface IEntityRepository<T> where T : class, IEntity, new()
     {
-        public List<T> GetAll(Expression<Func<T, bool>> filter =null);
+        public List<T> GetAll(Expression<Func<T, bool>> filter = null);
 
         void Add(T entity);
 
