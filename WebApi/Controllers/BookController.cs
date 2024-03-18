@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Entities.Dtos.Book;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,6 +27,26 @@ namespace WebApi.Controllers
         public IActionResult GetById(int id)
         {
             var result = _bookService.GetById(id);
+            return result.IsSuccess ? Ok(result) : BadRequest(result);
+        }
+
+        [HttpPost("createbook")]
+        public IActionResult Create([FromBody] BookCreateDTO bookCreateDto)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            
+            var result = _bookService.Create(bookCreateDto);
+            return result.IsSuccess ? Ok(result) : BadRequest(result);
+        }
+
+        [HttpPut("updatebook")]
+        public IActionResult Update([FromBody] BookUpdateDTO bookUpdateDto)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            
+            var result = _bookService.Update(bookUpdateDto);
             return result.IsSuccess ? Ok(result) : BadRequest(result);
         }
     }

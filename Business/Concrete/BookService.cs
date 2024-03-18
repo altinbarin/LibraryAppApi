@@ -3,6 +3,7 @@ using Business.Abstract;
 using Business.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
+using Entities.Concrete;
 using Entities.Dtos.Book;
 
 namespace Business.Concrete
@@ -16,6 +17,29 @@ namespace Business.Concrete
         {
             _bookRepository = bookRepository;
             _mapper = mapper;
+        }
+
+        /// <summary>
+        /// Yeni bir kitap oluşturma işlemini gerçekleştirir.
+        /// </summary>
+        /// <param name="bookCreateDto">Oluşturulacak kitap bilgilerini taşıyan DTO.</param>
+        /// <returns><see cref="IResult"/> tipinde işlem sonucunu döner.</returns>
+        public IResult Create(BookCreateDTO bookCreateDto)
+        {
+            try
+            {
+                var hasBook = _bookRepository.Get(book => book.Name == bookCreateDto.Name && book.PublisherId == bookCreateDto.PublisherId);
+                if (hasBook != null)
+                    return new ErrorResult(Messages.BookAlreadyExists);
+
+                var book = _mapper.Map<Book>(bookCreateDto);
+                _bookRepository.Add(book);
+                return new SuccessResult(Messages.BookCreatedSuccessfully);
+            }
+            catch (Exception)
+            {
+                return new ErrorResult(Messages.BookCanNotCreated);
+            }
         }
 
 
@@ -43,12 +67,38 @@ namespace Business.Concrete
         /// <returns>İşlemin başarı durumunu ve verileri içeren bir sonuç nesnesi döndürür.</returns>
         public IResult GetById(int id)
         {
-            var books = _bookRepository.Get(books=>books.Id==id && books.Status);
-            if(books==null)
+            var book = _bookRepository.Get(books=>books.Id==id && books.Status);
+            if(book==null)
                 return new ErrorResult(Messages.BookNotFound);
 
-            var bookDto = _mapper.Map<BookDetailDTO>(books);
+            var bookDto = _mapper.Map<BookDetailDTO>(book);
             return new SuccessDataResult<BookDetailDTO>(bookDto, Messages.BookListedSuccessfully);
+        }
+
+        /// <summary>
+        /// Belirtilen kitabı günceller.
+        /// </summary>
+        /// <param name="bookUpdateDto">Güncellenecek kitabın verilerini içeren DTO.</param>
+        /// <returns>İşlemin başarı durumunu içeren bir sonuç nesnesi döndürür.</returns>
+        public IResult Update(BookUpdateDTO bookUpdateDto)
+        {
+            try
+            {
+                var book = _bookRepository.Get(books => books.Id == bookUpdateDto.Id && books.Status);
+                if (book == null)
+                    return new ErrorResult(Messages.BookNotFound);
+
+                var updatedBook = _mapper.Map<Book>(bookUpdateDto);
+                updatedBook.ModifiedDate = DateTime.Now;
+
+                _bookRepository.Update(updatedBook);
+
+                return new SuccessResult(Messages.BookUpdatedSuccessfully);
+            }
+            catch (Exception)
+            {
+                return new ErrorResult(Messages.BookCanNotUpdated);
+            }
         }
     }
 }
