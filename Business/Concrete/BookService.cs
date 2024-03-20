@@ -61,6 +61,21 @@ namespace Business.Concrete
 
 
         /// <summary>
+        /// Belirtilen kitabın detaylarını getirir.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>İşlemin başarı durumunu ve verileri içeren bir sonuç nesnesi döndürür.</returns>
+        public IResult GetBookDetails(int id)
+        {
+            var book = _bookRepository.GetBookDetails(id);
+            if (book == null)
+                return new ErrorResult(Messages.BookNotFound);
+
+            return new SuccessDataResult<BookDetailDTO>(book, Messages.BookListedSuccessfully);
+        }
+
+
+        /// <summary>
         /// Belirtilen kitapların detaylarını getirir.
         /// </summary>
         /// <param name="id">Detayları alınacak kitapların kimliği.</param>

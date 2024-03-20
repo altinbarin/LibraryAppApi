@@ -13,7 +13,7 @@ namespace Business.Constants
         public const string MaximumLengthIs100 = "Maksimum uzunluk 100 karakter olmalıdır";
         public const string MaximumLengthIs200 = "Maksimum uzunluk 200 karakter olmalıdır";
         public const string MinimumLengthIs1 = "Minimum uzunluk 1 karakter olmalıdır";
-        public const string LengthIs11 = "11 karakter uzunluğunda olmalıdır";
+        public const string LengthIs11 = "Telefon numarası başında '0' ile birlikte 11 karakter uzunluğunda olmalıdır";
         public const string InvalidEmail = "Uygun bir email adresi giriniz";
         public const string NumberOnly = "Telefon numarası yalnızca sayılardan oluşmalıdır";
 

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Entities.Dtos.Book
+﻿namespace Entities.Dtos.Book
 {
     public class BookListDTO
     {
@@ -14,10 +8,10 @@ namespace Entities.Dtos.Book
         public int InStock { get; set; }
         public string Section { get; set; }
 
-        public DateTime CreatedDate { get; set; }
 
-        public string GenreName{ get; set; }
-        public string PublisherName { get; set; }
-        public string AuthorFullName { get; set; }
+        //public DateTime CreatedDate { get; set; }
+        //public string AuthorFullName { get; set; }
+        //public string PublisherName { get; set; }
+        //public string GenreName{ get; set; }
     }
 }

@@ -1,15 +1,12 @@
 ﻿using Core.DataAccess;
+using Core.Utilities.Results;
 using Entities.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Entities.Dtos.Book;
 
 namespace DataAccess.Abstract
 {
     public interface IBookRepository:IEntityRepository<Book>
     {
-
+        BookDetailDTO GetBookDetails(int id);
     }
 }

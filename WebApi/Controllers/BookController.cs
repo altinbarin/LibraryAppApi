@@ -30,6 +30,14 @@ namespace WebApi.Controllers
             return result.IsSuccess ? Ok(result) : BadRequest(result);
         }
 
+        [HttpGet("getbookdetails")]
+        public IActionResult GetBookDetails(int id)
+        {
+            var result = _bookService.GetBookDetails(id);
+            return result.IsSuccess ? Ok(result) : BadRequest(result);
+        }
+
+
         [HttpPost("createbook")]
         public IActionResult Create([FromBody] BookCreateDTO bookCreateDto)
         {
@@ -49,5 +57,7 @@ namespace WebApi.Controllers
             var result = _bookService.Update(bookUpdateDto);
             return result.IsSuccess ? Ok(result) : BadRequest(result);
         }
+
+
     }
 }
