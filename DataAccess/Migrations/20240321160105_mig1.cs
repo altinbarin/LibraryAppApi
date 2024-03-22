@@ -139,7 +139,7 @@ namespace DataAccess.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     MemberId = table.Column<int>(type: "int", nullable: false),
                     BookId = table.Column<int>(type: "int", nullable: false),
-                    HoldDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    BorrowDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ReturnDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Status = table.Column<bool>(type: "bit", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -168,12 +168,12 @@ namespace DataAccess.Migrations
                 columns: new[] { "Id", "CreatedDate", "DeletedDate", "ModifiedDate", "Name", "Status", "Surname" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(6874), null, null, "Cemal", true, "Süreya" },
-                    { 2, new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(6877), null, null, "Orhan", true, "Kemal" },
-                    { 3, new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(6879), null, null, "Sabahattin", true, "Ali" },
-                    { 4, new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(6881), null, null, "Rick", true, "Riordan" },
-                    { 5, new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(6916), null, null, "J.K.", true, "Rowling" },
-                    { 6, new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(6918), null, null, "Anonim", true, "Anonim" }
+                    { 1, new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(4420), null, null, "Cemal", true, "Süreya" },
+                    { 2, new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(4423), null, null, "Orhan", true, "Kemal" },
+                    { 3, new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(4425), null, null, "Sabahattin", true, "Ali" },
+                    { 4, new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(4427), null, null, "Rick", true, "Riordan" },
+                    { 5, new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(4429), null, null, "J.K.", true, "Rowling" },
+                    { 6, new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(4431), null, null, "Anonim", true, "Anonim" }
                 });
 
             migrationBuilder.InsertData(
@@ -181,14 +181,14 @@ namespace DataAccess.Migrations
                 columns: new[] { "Id", "CreatedDate", "DeletedDate", "ModifiedDate", "Name", "Status" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(1417), null, null, "Roman", true },
-                    { 2, new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(1419), null, null, "Hikaye", true },
-                    { 3, new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(1421), null, null, "Şiir", true },
-                    { 4, new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(1423), null, null, "Fabl", true },
-                    { 5, new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(1424), null, null, "Masal", true },
-                    { 6, new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(1426), null, null, "Tiyatro", true },
-                    { 7, new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(1428), null, null, "Deneme", true },
-                    { 8, new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(1429), null, null, "Ansiklopedi", true }
+                    { 1, new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(8881), null, null, "Roman", true },
+                    { 2, new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(8884), null, null, "Hikaye", true },
+                    { 3, new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(8886), null, null, "Şiir", true },
+                    { 4, new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(8887), null, null, "Fabl", true },
+                    { 5, new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(8889), null, null, "Masal", true },
+                    { 6, new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(8891), null, null, "Tiyatro", true },
+                    { 7, new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(8893), null, null, "Deneme", true },
+                    { 8, new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(8894), null, null, "Ansiklopedi", true }
                 });
 
             migrationBuilder.InsertData(
@@ -196,11 +196,11 @@ namespace DataAccess.Migrations
                 columns: new[] { "Id", "Address", "CreatedDate", "DeletedDate", "Email", "ModifiedDate", "Name", "Phone", "Status", "Surname", "TCKNO" },
                 values: new object[,]
                 {
-                    { 1, "İstanbul, Kadıköy", new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(3233), null, "furkanaltinbarin@gmail.com", null, "Furkan", "05431768274", true, "Altınbarın", "20890834938" },
-                    { 2, "İstanbul, Cevizlibağ", new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(3237), null, "mehmetcatmakasli@mail.com", null, "Mehmet", "05363235378", true, "Çatmakaşlı", "55871434614" },
-                    { 3, "İstanbul, Üsküdar", new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(3239), null, "ahmetyilmaz@gmail.com", null, "Ahmet", "05363235375", true, "Yılmaz", "70726402020" },
-                    { 4, "İstanbul, Kartal", new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(3242), null, "ayseyilmaz@gmail.com", null, "Ayşe", "05361031245", true, "Yılmaz", "20697468440" },
-                    { 5, "İstanbul, Avcılar", new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(3244), null, "fatmakartal@gmail.com", null, "Fatma", "05361031245", true, "Kartal", "41354126398" }
+                    { 1, "İstanbul, Kadıköy", new DateTime(2024, 3, 21, 19, 1, 4, 744, DateTimeKind.Local).AddTicks(805), null, "furkanaltinbarin@gmail.com", null, "Furkan", "05431768274", true, "Altınbarın", "20890834938" },
+                    { 2, "İstanbul, Cevizlibağ", new DateTime(2024, 3, 21, 19, 1, 4, 744, DateTimeKind.Local).AddTicks(809), null, "mehmetcatmakasli@mail.com", null, "Mehmet", "05363235378", true, "Çatmakaşlı", "55871434614" },
+                    { 3, "İstanbul, Üsküdar", new DateTime(2024, 3, 21, 19, 1, 4, 744, DateTimeKind.Local).AddTicks(812), null, "ahmetyilmaz@gmail.com", null, "Ahmet", "05363235375", true, "Yılmaz", "70726402020" },
+                    { 4, "İstanbul, Kartal", new DateTime(2024, 3, 21, 19, 1, 4, 744, DateTimeKind.Local).AddTicks(814), null, "ayseyilmaz@gmail.com", null, "Ayşe", "05361031245", true, "Yılmaz", "20697468440" },
+                    { 5, "İstanbul, Avcılar", new DateTime(2024, 3, 21, 19, 1, 4, 744, DateTimeKind.Local).AddTicks(816), null, "fatmakartal@gmail.com", null, "Fatma", "05361031245", true, "Kartal", "41354126398" }
                 });
 
             migrationBuilder.InsertData(
@@ -208,12 +208,12 @@ namespace DataAccess.Migrations
                 columns: new[] { "Id", "Address", "CreatedDate", "DeletedDate", "Email", "ModifiedDate", "Name", "Phone", "Status" },
                 values: new object[,]
                 {
-                    { 1, "İstanbul", new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(4789), null, "everest@mail.com", null, "Everest", "02121234567", true },
-                    { 2, "İstanbul", new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(4792), null, "dogan@gmail.com", null, "Doğan Kitap", "02121234567", true },
-                    { 3, "İstanbul", new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(4794), null, "isbankasi@mail.com", null, "İş Bankası", "02121234567", true },
-                    { 4, "İstanbul", new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(4796), null, "yapikredi@mail.com", null, "Yapı Kredi", "02121234567", true },
-                    { 5, "İstanbul", new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(4798), null, "timas@mail.com", null, "Timaş", "02121234567", true },
-                    { 6, "Ankara", new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(4800), null, "tubitak@mail.com", null, "Tubitak", "03121234567", true }
+                    { 1, "İstanbul", new DateTime(2024, 3, 21, 19, 1, 4, 744, DateTimeKind.Local).AddTicks(2373), null, "everest@mail.com", null, "Everest", "02121234567", true },
+                    { 2, "İstanbul", new DateTime(2024, 3, 21, 19, 1, 4, 744, DateTimeKind.Local).AddTicks(2377), null, "dogan@gmail.com", null, "Doğan Kitap", "02121234567", true },
+                    { 3, "İstanbul", new DateTime(2024, 3, 21, 19, 1, 4, 744, DateTimeKind.Local).AddTicks(2379), null, "isbankasi@mail.com", null, "İş Bankası", "02121234567", true },
+                    { 4, "İstanbul", new DateTime(2024, 3, 21, 19, 1, 4, 744, DateTimeKind.Local).AddTicks(2381), null, "yapikredi@mail.com", null, "Yapı Kredi", "02121234567", true },
+                    { 5, "İstanbul", new DateTime(2024, 3, 21, 19, 1, 4, 744, DateTimeKind.Local).AddTicks(2383), null, "timas@mail.com", null, "Timaş", "02121234567", true },
+                    { 6, "Ankara", new DateTime(2024, 3, 21, 19, 1, 4, 744, DateTimeKind.Local).AddTicks(2385), null, "tubitak@mail.com", null, "Tubitak", "03121234567", true }
                 });
 
             migrationBuilder.InsertData(
@@ -221,17 +221,17 @@ namespace DataAccess.Migrations
                 columns: new[] { "Id", "AuthorId", "CreatedDate", "DeletedDate", "GenreId", "InStock", "ModifiedDate", "Name", "PublisherId", "Section", "Status", "TotalStock" },
                 values: new object[,]
                 {
-                    { 1, 3, new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(8601), null, 1, 5, null, "Kürk Mantolu Madonna", 1, "113", true, 5 },
-                    { 2, 1, new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(8639), null, 3, 2, null, "Güz Bitiği", 2, "113", true, 2 },
-                    { 3, 1, new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(8641), null, 3, 1, null, "On Üç Günün Mektupları", 1, "113", true, 1 },
-                    { 4, 1, new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(8644), null, 3, 1, null, "Günübirlik", 2, "113", true, 1 },
-                    { 5, 1, new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(8646), null, 3, 1, null, "Üvercinka", 2, "113", true, 1 },
-                    { 6, 2, new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(8649), null, 1, 3, null, "72. Koğuş", 5, "113", true, 3 },
-                    { 7, 2, new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(8651), null, 1, 1, null, "Tersine Dünya", 5, "113", true, 1 },
-                    { 8, 2, new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(8653), null, 1, 12, null, "Percy Jackson", 3, "110", true, 12 },
-                    { 9, 6, new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(8656), null, 7, 19, null, "1919'dan Günümüze Türkiye", 6, "110", true, 19 },
-                    { 10, 5, new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(8658), null, 1, 1, null, "Yüzüklerin Efendisi", 4, "110", true, 1 },
-                    { 11, 6, new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(8660), null, 4, 1, null, "La Fontaine Masalları", 3, "109", true, 1 }
+                    { 1, 3, new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(6182), null, 1, 5, null, "Kürk Mantolu Madonna", 1, "113", true, 5 },
+                    { 2, 1, new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(6186), null, 3, 2, null, "Güz Bitiği", 2, "113", true, 2 },
+                    { 3, 1, new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(6188), null, 3, 1, null, "On Üç Günün Mektupları", 1, "113", true, 1 },
+                    { 4, 1, new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(6191), null, 3, 1, null, "Günübirlik", 2, "113", true, 1 },
+                    { 5, 1, new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(6193), null, 3, 1, null, "Üvercinka", 2, "113", true, 1 },
+                    { 6, 2, new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(6195), null, 1, 3, null, "72. Koğuş", 5, "113", true, 3 },
+                    { 7, 2, new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(6198), null, 1, 1, null, "Tersine Dünya", 5, "113", true, 1 },
+                    { 8, 2, new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(6200), null, 1, 12, null, "Percy Jackson", 3, "110", true, 12 },
+                    { 9, 6, new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(6202), null, 7, 19, null, "1919'dan Günümüze Türkiye", 6, "110", true, 19 },
+                    { 10, 5, new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(6205), null, 1, 1, null, "Yüzüklerin Efendisi", 4, "110", true, 1 },
+                    { 11, 6, new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(6207), null, 4, 1, null, "La Fontaine Masalları", 3, "109", true, 1 }
                 });
 
             migrationBuilder.CreateIndex(

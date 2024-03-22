@@ -1,6 +1,5 @@
 ﻿using Business.Abstract;
 using Entities.Dtos.Member;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
@@ -22,6 +21,14 @@ namespace WebApi.Controllers
             var result = _memberService.GetAll();
             return result.IsSuccess ? Ok(result) : BadRequest(result);
         }
+
+        [HttpGet("allmembersdeleted")]
+        public IActionResult GetAllDeleted()
+        {
+            var result = _memberService.GetAllDeleted();
+            return result.IsSuccess ? Ok(result) : BadRequest(result);
+        }
+
 
         [HttpGet("getmemberbyid")]
         public IActionResult GetById(int id)
@@ -47,6 +54,20 @@ namespace WebApi.Controllers
                 return BadRequest(ModelState);
             
             var result = _memberService.Update(memberUpdateDto);
+            return result.IsSuccess ? Ok(result) : BadRequest(result);
+        }
+
+        [HttpPost("deletemember")]
+        public IActionResult Delete(int id)
+        {
+            var result = _memberService.Delete(id);
+            return result.IsSuccess ? Ok(result) : BadRequest(result);
+        }
+
+        [HttpPost("activatemember")]
+        public IActionResult Activate(int id)
+        {
+            var result = _memberService.Activate(id);
             return result.IsSuccess ? Ok(result) : BadRequest(result);
         }
     }

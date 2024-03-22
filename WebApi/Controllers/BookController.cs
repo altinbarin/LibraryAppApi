@@ -1,6 +1,5 @@
 ﻿using Business.Abstract;
 using Entities.Dtos.Book;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
@@ -37,6 +36,26 @@ namespace WebApi.Controllers
             return result.IsSuccess ? Ok(result) : BadRequest(result);
         }
 
+        [HttpGet("getbookswithauthorid")]
+        public IActionResult GetBooksWithAuthorId(int Id)
+        {
+            var result = _bookService.GetBooksWithAuthorId(Id);
+            return result.IsSuccess ? Ok(result) : BadRequest(result);
+        }
+
+        [HttpGet("getbookswithgenreid")]
+        public IActionResult GetBooksWithGenreId(int Id)
+        {
+            var result = _bookService.GetBooksWithGenreId(Id);
+            return result.IsSuccess ? Ok(result) : BadRequest(result);
+        }
+
+        [HttpGet("getbookswithpublisherid")]
+        public IActionResult GetBooksWithPublisherId(int Id)
+        {
+            var result = _bookService.GetBooksWithPublisherId(Id);
+            return result.IsSuccess ? Ok(result) : BadRequest(result);
+        }
 
         [HttpPost("createbook")]
         public IActionResult Create([FromBody] BookCreateDTO bookCreateDto)
@@ -57,6 +76,7 @@ namespace WebApi.Controllers
             var result = _bookService.Update(bookUpdateDto);
             return result.IsSuccess ? Ok(result) : BadRequest(result);
         }
+
 
 
     }

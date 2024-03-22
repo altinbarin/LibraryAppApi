@@ -18,6 +18,26 @@ namespace Business.Concrete
             _mapper = mapper;
         }
 
+        public IResult Activate(int id)
+        {
+            try
+            {
+                var member = _memberRepository.Get(member => member.Id == id && !member.Status);
+                if (member == null)
+                    return new ErrorResult(Messages.MemberNotFound);
+
+                member.Status = true;
+                member.DeletedDate = null;
+                member.ModifiedDate = DateTime.Now;
+                _memberRepository.Update(member);
+                return new SuccessResult(Messages.MemberActivatedSuccessfully);
+            }
+            catch (Exception)
+            {
+                return new ErrorResult(Messages.MemberCanNotActivate);
+            }
+        }
+
         /// <summary>
         /// Yeni bir üye oluşturma işlemini gerçekleştirir.
         /// </summary>
@@ -42,6 +62,25 @@ namespace Business.Concrete
            
         }
 
+        public IResult Delete(int id)
+        {
+            try
+            {
+                var member = _memberRepository.Get(member => member.Id == id && member.Status);
+                if (member == null)
+                    return new ErrorResult(Messages.MemberNotFound);
+
+                member.Status = false;
+                member.DeletedDate = DateTime.Now;
+                _memberRepository.Update(member);
+                return new SuccessResult(Messages.MemberDeletedSuccessfully);
+            }
+            catch (Exception)
+            {
+                return new ErrorResult(Messages.MemberCanNotDeleted);
+            }
+        }
+
 
         /// <summary>
         /// Tüm üyeleri listeler.
@@ -50,6 +89,16 @@ namespace Business.Concrete
         public IResult GetAll()
         {
             var members = _memberRepository.GetAll(members=>members.Status);
+            if (members.Count() <= 0)
+                return new ErrorResult(Messages.MembersNotFound);
+
+            var memberDtos = _mapper.Map<List<MemberListDTO>>(members);
+            return new SuccessDataResult<List<MemberListDTO>>(memberDtos, Messages.MembersListedSuccessfully);
+        }
+
+        public IResult GetAllDeleted()
+        {
+            var members = _memberRepository.GetAll(members => !members.Status);
             if (members.Count() <= 0)
                 return new ErrorResult(Messages.MembersNotFound);
 
@@ -73,6 +122,7 @@ namespace Business.Concrete
         }
 
 
+
         /// <summary>
         /// Belirtilen üyeyi günceller.
         /// </summary>
@@ -87,6 +137,7 @@ namespace Business.Concrete
                     return new ErrorResult(Messages.MemberNotFound);
 
                 member.ModifiedDate = DateTime.Now;
+                member.DeletedDate = null;
                 var updatedMember = _mapper.Map<Member>(memberUpdateDto);
 
                 _memberRepository.Update(updatedMember);

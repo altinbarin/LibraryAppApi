@@ -49,5 +49,6 @@ namespace WebApi.Controllers
             var result = _authorService.Update(authorUpdateDto);
             return result.IsSuccess ? Ok(result) : BadRequest(result);
         }
+
     }
 }

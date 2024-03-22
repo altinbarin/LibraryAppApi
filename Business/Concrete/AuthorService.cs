@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Business.Abstract;
 using Business.Constants;
-using Business.ValidationRules.FluentValidation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -62,6 +61,7 @@ namespace Business.Concrete
 
             return new SuccessDataResult<List<AuthorListDTO>>(authorDtos, Messages.AuthorsListedSuccessfully);
         }
+
 
 
         /// <summary>

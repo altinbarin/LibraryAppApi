@@ -1,5 +1,4 @@
 ﻿using Core.Utilities.Results;
-using Entities.Dtos.Author;
 using Entities.Dtos.Book;
 
 namespace Business.Abstract
@@ -26,6 +25,30 @@ namespace Business.Abstract
         /// <param name="id"></param>
         /// <returns>İşlemin başarı durumunu ve verileri içeren bir sonuç nesnesi döndürür.</returns>
         IResult GetBookDetails(int id);
+
+
+        /// <summary>
+        /// Belirtilen yazarın kitaplarını getirir.
+        /// </summary>
+        /// <param name="Id">Kitapları getirilecek yazarın kimliği</param>
+        /// <returns>İşlemin başarı durumunu ve verileri içeren bir sonuç nesnesi döndürür</returns>
+        IResult GetBooksWithAuthorId(int Id);
+
+
+        /// <summary>
+        /// Belirtilen türdeki kitapları getirir.
+        /// </summary>
+        /// <param name="Id">Kitapları getirilecek türün kimliği</param>
+        /// <returns>İşlemin başarı durumunu ve verileri içeren bir sonuç nesnesi döndürür</returns>
+        IResult GetBooksWithGenreId(int Id);
+
+
+        /// <summary>
+        /// Belirtilen yayınevinin kitaplarını getirir.
+        /// </summary>
+        /// <param name="Id">Kitapları getirilecek yayınevinin kimliği</param>
+        /// <returns>İşlemin başarı durumunu ve verileri içeren bir sonuç nesnesi döndürür</returns>
+        IResult GetBooksWithPublisherId(int Id);
 
         /// <summary>
         /// Yeni bir kitap oluşturma işlemini gerçekleştirir.

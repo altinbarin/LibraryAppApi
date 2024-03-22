@@ -11,6 +11,7 @@ namespace Business.AutoMapper
             CreateMap<BorrowedBookCreateDTO, BorrowedBook>();
             CreateMap<BorrowedBookUpdateDTO, BorrowedBook>();
             CreateMap<BorrowedBook, BorrowedBookListDTO>();
+            CreateMap<BorrowedBook, ReturnedBookListDTO>();
             CreateMap<BorrowedBook, BorrowedBookDetailDTO>();
         }
     }

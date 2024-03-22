@@ -8,7 +8,7 @@ namespace DataAccess.Configurations
     {
         public void Configure(EntityTypeBuilder<BorrowedBook> builder)
         {
-            builder.Property(borrowedBook => borrowedBook.HoldDate).IsRequired();
+            builder.Property(borrowedBook => borrowedBook.BorrowDate).IsRequired();
 
             
         }

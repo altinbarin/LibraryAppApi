@@ -11,11 +11,18 @@ namespace Business.Constants
         //General Messages
         public const string ThisFieldIsRequired = "Bu alan zorunludur";
         public const string MaximumLengthIs100 = "Maksimum uzunluk 100 karakter olmalıdır";
+        public const string MaximumLengthIs50 = "Maksimum uzunluk 50 karakter olmalıdır";
         public const string MaximumLengthIs200 = "Maksimum uzunluk 200 karakter olmalıdır";
+        public const string MaximumLengthIs250 = "Maksimum uzunluk 250 karakter olmalıdır";
         public const string MinimumLengthIs1 = "Minimum uzunluk 1 karakter olmalıdır";
+        public const string MinimumLengthIs2 = "Minimum uzunluk 2 karakter olmalıdır";
+        public const string MinimumLengthIs10 = "Minimum uzunluk 10 karakter olmalıdır";
         public const string LengthIs11 = "Telefon numarası başında '0' ile birlikte 11 karakter uzunluğunda olmalıdır";
         public const string InvalidEmail = "Uygun bir email adresi giriniz";
         public const string NumberOnly = "Telefon numarası yalnızca sayılardan oluşmalıdır";
+        public const string AllCharactersMustBeLetter = "Tüm karakterler harf olmalıdır";
+        public const string NotAValidTCKNO = "Geçersiz T.C. Kimlik Numarası";
+        public const string NotAValidPhoneNumber = "Geçersiz telefon numarası";
 
         //Book Messages
         public const string BooksListedSuccessfully = "Kitaplar başarıyla listelendi";
@@ -27,6 +34,7 @@ namespace Business.Constants
         public const string BookCreatedSuccessfully = "Kitap başarıyla oluşturuldu";
         public const string BookCanNotUpdated = "Kitap güncellenemedi";
         public const string BookUpdatedSuccessfully = "Kitap başarıyla güncellendi";
+        public const string TotalStockMustBeGreaterOrEqualToZero = "Stok değeri sıfırdan büyük veya eşit olmalıdır";
 
         //Author Messages
         public const string AuthorsNotFound = "Listelenecek yazar bulunamadı";
@@ -38,6 +46,7 @@ namespace Business.Constants
         public const string AuthorCanNotCreated = "Yazar oluşturulamadı";
         public const string AuthorCanNotUpdated = "Yazar güncellenemedi";
         public const string AuthorUpdatedSuccessfully = "Yazar başarıyla güncellendi";
+        public const string TheAuthorHasNoBooks = "Belirtilen yazara ait kitap bulunamadı";
 
         //Author Validation Messages
 
@@ -47,7 +56,14 @@ namespace Business.Constants
         public const string BorrowedBooksNotFound = "Listelenecek ödünç kitap bulunamadı";
         public const string BorrowedBooksListedSuccessfully = "Ödünç alınan kitaplar başarıyla listelendi";
         public const string BorrowedBookListedSuccessfully = "Ödünç alınan kitap başarıyla listelendi";
+        public const string ReturnedBooksListedSuccessfully = "İade alınan kitap başarıyla listelendi";
         public const string BorrowedBookNotFound = "Belirtilen kimlikte ödünç alınan kitap bulunamadı";
+        public const string ReturnedBookNotFound = "Belirtilen kimlikte iade alınan kitap bulunamadı";
+        public const string BorrowedBookCanNotBeCreated = "Kitap ödünç alma işlemi başarısız";
+        public const string BorrowedBookCreatedSuccessfully = "Kitap ödünç alma işlemi başarıyla oluşturuldu";
+        public const string BookHasNoStock = "Belirtilen kitap stokta yok";
+        public const string BorrowedBookReturnedSuccessfully = "Ödünç verilen kitap başarıyla geri alındı";
+        public const string MemberCanNotBorrowMoreThanThreeBooks = "Üye aynı anda 3(üç) adetten fazla kitap ödünç alamaz";
 
         //Genre Messages
         public const string GenresNotFound = "Listelenecek tür bulunamadı";
@@ -59,6 +75,7 @@ namespace Business.Constants
         public const string GenreCanNotUpdated = "Tür güncellenemedi";
         public const string GenreCreatedSuccessfully = "Tür başarıyla oluşturuldu";
         public const string GenreUpdatedSuccessfully = "Tür başarıyla güncellendi";
+        public const string TheGenreHasNoBooks = "Bu türde kitap bulunamadı";
 
         //Member Messages
         public const string MembersNotFound = "Listelenecek üye bulunamadı";
@@ -70,6 +87,10 @@ namespace Business.Constants
         public const string MemberUpdatedSuccessfully = "Üye başarıyla güncellendi";
         public const string MemberCanNotCreated = "Üye oluşturulamadı";
         public const string MemberCanNotUpdated = "Üye güncellenemedi";
+        public const string MemberDeletedSuccessfully = "Üye başarıyla silindi";
+        public const string MemberActivatedSuccessfully = "Üye başarıyla aktive edildi";
+        public const string MemberCanNotDeleted = "Üye silme işlemi başarısız";
+        public const string MemberCanNotActivate = "Üye aktive etme işlemi başarısız";
 
         //Publisher Messages
         public const string PublishersNotFound = "Listelenecek yayınevi bulunamadı";
@@ -81,6 +102,7 @@ namespace Business.Constants
         public const string PublisherCanNotUpdated = "Yayınevi güncellenemedi";
         public const string PublisherCreatedSuccessfully = "Yayınevi başarıyla oluşturuldu";
         public const string PublisherUpdatedSuccessfully = "Yayınevi başarıyla güncellendi";
+        public const string ThePublisherHasNoBooks = "Bu yayınevine ait kitap bulunamadı";
 
 
         

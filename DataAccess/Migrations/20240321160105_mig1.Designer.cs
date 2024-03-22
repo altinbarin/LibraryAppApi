@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(LibraryContext))]
-    [Migration("20240318153852_mig1")]
+    [Migration("20240321160105_mig1")]
     partial class mig1
     {
         /// <inheritdoc />
@@ -63,7 +63,7 @@ namespace DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(6874),
+                            CreatedDate = new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(4420),
                             Name = "Cemal",
                             Status = true,
                             Surname = "Süreya"
@@ -71,7 +71,7 @@ namespace DataAccess.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(6877),
+                            CreatedDate = new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(4423),
                             Name = "Orhan",
                             Status = true,
                             Surname = "Kemal"
@@ -79,7 +79,7 @@ namespace DataAccess.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(6879),
+                            CreatedDate = new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(4425),
                             Name = "Sabahattin",
                             Status = true,
                             Surname = "Ali"
@@ -87,7 +87,7 @@ namespace DataAccess.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(6881),
+                            CreatedDate = new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(4427),
                             Name = "Rick",
                             Status = true,
                             Surname = "Riordan"
@@ -95,7 +95,7 @@ namespace DataAccess.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(6916),
+                            CreatedDate = new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(4429),
                             Name = "J.K.",
                             Status = true,
                             Surname = "Rowling"
@@ -103,7 +103,7 @@ namespace DataAccess.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(6918),
+                            CreatedDate = new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(4431),
                             Name = "Anonim",
                             Status = true,
                             Surname = "Anonim"
@@ -172,7 +172,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 1,
                             AuthorId = 3,
-                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(8601),
+                            CreatedDate = new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(6182),
                             GenreId = 1,
                             InStock = 5,
                             Name = "Kürk Mantolu Madonna",
@@ -185,7 +185,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 2,
                             AuthorId = 1,
-                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(8639),
+                            CreatedDate = new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(6186),
                             GenreId = 3,
                             InStock = 2,
                             Name = "Güz Bitiği",
@@ -198,7 +198,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 3,
                             AuthorId = 1,
-                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(8641),
+                            CreatedDate = new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(6188),
                             GenreId = 3,
                             InStock = 1,
                             Name = "On Üç Günün Mektupları",
@@ -211,7 +211,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 4,
                             AuthorId = 1,
-                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(8644),
+                            CreatedDate = new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(6191),
                             GenreId = 3,
                             InStock = 1,
                             Name = "Günübirlik",
@@ -224,7 +224,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 5,
                             AuthorId = 1,
-                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(8646),
+                            CreatedDate = new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(6193),
                             GenreId = 3,
                             InStock = 1,
                             Name = "Üvercinka",
@@ -237,7 +237,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 6,
                             AuthorId = 2,
-                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(8649),
+                            CreatedDate = new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(6195),
                             GenreId = 1,
                             InStock = 3,
                             Name = "72. Koğuş",
@@ -250,7 +250,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 7,
                             AuthorId = 2,
-                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(8651),
+                            CreatedDate = new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(6198),
                             GenreId = 1,
                             InStock = 1,
                             Name = "Tersine Dünya",
@@ -263,7 +263,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 8,
                             AuthorId = 2,
-                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(8653),
+                            CreatedDate = new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(6200),
                             GenreId = 1,
                             InStock = 12,
                             Name = "Percy Jackson",
@@ -276,7 +276,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 9,
                             AuthorId = 6,
-                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(8656),
+                            CreatedDate = new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(6202),
                             GenreId = 7,
                             InStock = 19,
                             Name = "1919'dan Günümüze Türkiye",
@@ -289,7 +289,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 10,
                             AuthorId = 5,
-                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(8658),
+                            CreatedDate = new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(6205),
                             GenreId = 1,
                             InStock = 1,
                             Name = "Yüzüklerin Efendisi",
@@ -302,7 +302,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 11,
                             AuthorId = 6,
-                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 604, DateTimeKind.Local).AddTicks(8660),
+                            CreatedDate = new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(6207),
                             GenreId = 4,
                             InStock = 1,
                             Name = "La Fontaine Masalları",
@@ -324,13 +324,13 @@ namespace DataAccess.Migrations
                     b.Property<int>("BookId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("BorrowDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("HoldDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("MemberId")
@@ -387,56 +387,56 @@ namespace DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(1417),
+                            CreatedDate = new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(8881),
                             Name = "Roman",
                             Status = true
                         },
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(1419),
+                            CreatedDate = new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(8884),
                             Name = "Hikaye",
                             Status = true
                         },
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(1421),
+                            CreatedDate = new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(8886),
                             Name = "Şiir",
                             Status = true
                         },
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(1423),
+                            CreatedDate = new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(8887),
                             Name = "Fabl",
                             Status = true
                         },
                         new
                         {
                             Id = 5,
-                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(1424),
+                            CreatedDate = new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(8889),
                             Name = "Masal",
                             Status = true
                         },
                         new
                         {
                             Id = 6,
-                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(1426),
+                            CreatedDate = new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(8891),
                             Name = "Tiyatro",
                             Status = true
                         },
                         new
                         {
                             Id = 7,
-                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(1428),
+                            CreatedDate = new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(8893),
                             Name = "Deneme",
                             Status = true
                         },
                         new
                         {
                             Id = 8,
-                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(1429),
+                            CreatedDate = new DateTime(2024, 3, 21, 19, 1, 4, 743, DateTimeKind.Local).AddTicks(8894),
                             Name = "Ansiklopedi",
                             Status = true
                         });
@@ -501,7 +501,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 1,
                             Address = "İstanbul, Kadıköy",
-                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(3233),
+                            CreatedDate = new DateTime(2024, 3, 21, 19, 1, 4, 744, DateTimeKind.Local).AddTicks(805),
                             Email = "furkanaltinbarin@gmail.com",
                             Name = "Furkan",
                             Phone = "05431768274",
@@ -513,7 +513,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 2,
                             Address = "İstanbul, Cevizlibağ",
-                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(3237),
+                            CreatedDate = new DateTime(2024, 3, 21, 19, 1, 4, 744, DateTimeKind.Local).AddTicks(809),
                             Email = "mehmetcatmakasli@mail.com",
                             Name = "Mehmet",
                             Phone = "05363235378",
@@ -525,7 +525,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 3,
                             Address = "İstanbul, Üsküdar",
-                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(3239),
+                            CreatedDate = new DateTime(2024, 3, 21, 19, 1, 4, 744, DateTimeKind.Local).AddTicks(812),
                             Email = "ahmetyilmaz@gmail.com",
                             Name = "Ahmet",
                             Phone = "05363235375",
@@ -537,7 +537,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 4,
                             Address = "İstanbul, Kartal",
-                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(3242),
+                            CreatedDate = new DateTime(2024, 3, 21, 19, 1, 4, 744, DateTimeKind.Local).AddTicks(814),
                             Email = "ayseyilmaz@gmail.com",
                             Name = "Ayşe",
                             Phone = "05361031245",
@@ -549,7 +549,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 5,
                             Address = "İstanbul, Avcılar",
-                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(3244),
+                            CreatedDate = new DateTime(2024, 3, 21, 19, 1, 4, 744, DateTimeKind.Local).AddTicks(816),
                             Email = "fatmakartal@gmail.com",
                             Name = "Fatma",
                             Phone = "05361031245",
@@ -608,7 +608,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 1,
                             Address = "İstanbul",
-                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(4789),
+                            CreatedDate = new DateTime(2024, 3, 21, 19, 1, 4, 744, DateTimeKind.Local).AddTicks(2373),
                             Email = "everest@mail.com",
                             Name = "Everest",
                             Phone = "02121234567",
@@ -618,7 +618,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 2,
                             Address = "İstanbul",
-                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(4792),
+                            CreatedDate = new DateTime(2024, 3, 21, 19, 1, 4, 744, DateTimeKind.Local).AddTicks(2377),
                             Email = "dogan@gmail.com",
                             Name = "Doğan Kitap",
                             Phone = "02121234567",
@@ -628,7 +628,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 3,
                             Address = "İstanbul",
-                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(4794),
+                            CreatedDate = new DateTime(2024, 3, 21, 19, 1, 4, 744, DateTimeKind.Local).AddTicks(2379),
                             Email = "isbankasi@mail.com",
                             Name = "İş Bankası",
                             Phone = "02121234567",
@@ -638,7 +638,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 4,
                             Address = "İstanbul",
-                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(4796),
+                            CreatedDate = new DateTime(2024, 3, 21, 19, 1, 4, 744, DateTimeKind.Local).AddTicks(2381),
                             Email = "yapikredi@mail.com",
                             Name = "Yapı Kredi",
                             Phone = "02121234567",
@@ -648,7 +648,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 5,
                             Address = "İstanbul",
-                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(4798),
+                            CreatedDate = new DateTime(2024, 3, 21, 19, 1, 4, 744, DateTimeKind.Local).AddTicks(2383),
                             Email = "timas@mail.com",
                             Name = "Timaş",
                             Phone = "02121234567",
@@ -658,7 +658,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 6,
                             Address = "Ankara",
-                            CreatedDate = new DateTime(2024, 3, 18, 18, 38, 51, 605, DateTimeKind.Local).AddTicks(4800),
+                            CreatedDate = new DateTime(2024, 3, 21, 19, 1, 4, 744, DateTimeKind.Local).AddTicks(2385),
                             Email = "tubitak@mail.com",
                             Name = "Tubitak",
                             Phone = "03121234567",

@@ -1,10 +1,5 @@
 ﻿using Core.Utilities.Results;
 using Entities.Dtos.Author;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Business.Abstract
 {
@@ -36,5 +31,8 @@ namespace Business.Abstract
         /// <param name="authorUpdateDto">Güncellenecek yazarın verilerini içeren DTO.</param>
         /// <returns>İşlemin başarı durumunu içeren bir sonuç nesnesi döndürür.</returns>
         IResult Update(AuthorUpdateDTO authorUpdateDto);
+
+
+       
     }
 }

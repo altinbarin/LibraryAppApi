@@ -33,6 +33,7 @@ namespace Business.Concrete
                     return new ErrorResult(Messages.BookAlreadyExists);
 
                 var book = _mapper.Map<Book>(bookCreateDto);
+                book.InStock = book.TotalStock;
                 _bookRepository.Add(book);
                 return new SuccessResult(Messages.BookCreatedSuccessfully);
             }
@@ -72,6 +73,53 @@ namespace Business.Concrete
                 return new ErrorResult(Messages.BookNotFound);
 
             return new SuccessDataResult<BookDetailDTO>(book, Messages.BookListedSuccessfully);
+        }
+
+
+        /// <summary>
+        /// Belirtilen yazarın kitaplarını getirir.
+        /// </summary>
+        /// <param name="authorId">Kitapları getirilecek yazarın kimliği</param>
+        /// <returns>İşlemin başarı durumunu ve verileri içeren bir sonuç nesnesi döndürür</returns>
+        public IResult GetBooksWithAuthorId(int Id)
+        {
+            var books = _bookRepository.GetAll(books => books.AuthorId == Id && books.Status);
+            if (books.Count() <= 0)
+                return new ErrorResult(Messages.TheAuthorHasNoBooks);
+
+            var bookDtos = _mapper.Map<List<BookListDTO>>(books);
+            return new SuccessDataResult<List<BookListDTO>>(bookDtos, Messages.BooksListedSuccessfully);
+        }
+
+
+        /// <summary>
+        /// Belirtilen türdeki kitapları getirir.
+        /// </summary>
+        /// <param name="Id">Kitapları getirilecek türün kimliği</param>
+        /// <returns>İşlemin başarı durumunu ve verileri içeren bir sonuç nesnesi döndürür</returns>
+        public IResult GetBooksWithGenreId(int Id)
+        {
+            var books = _bookRepository.GetAll(books => books.GenreId == Id && books.Status);
+            if (books.Count() <= 0)
+                return new ErrorResult(Messages.TheGenreHasNoBooks);
+
+            var bookDtos = _mapper.Map<List<BookListDTO>>(books);
+            return new SuccessDataResult<List<BookListDTO>>(bookDtos, Messages.BooksListedSuccessfully);
+        }
+
+        /// <summary>
+        /// Belirtilen yayınevinin kitaplarını getirir.
+        /// </summary>
+        /// <param name="Id">Kitapları getirilecek yayınevinin kimliği</param>
+        /// <returns>İşlemin başarı durumunu ve verileri içeren bir sonuç nesnesi döndürür</returns>
+        public IResult GetBooksWithPublisherId(int Id)
+        {
+            var books = _bookRepository.GetAll(books => books.PublisherId == Id && books.Status);
+            if (books.Count() <= 0)
+                return new ErrorResult(Messages.ThePublisherHasNoBooks);
+
+            var bookDtos = _mapper.Map<List<BookListDTO>>(books);
+            return new SuccessDataResult<List<BookListDTO>>(bookDtos, Messages.BooksListedSuccessfully);
         }
 
 

@@ -1,9 +1,4 @@
 ﻿using Core.Entities.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Entities.Concrete
 {
@@ -15,7 +10,7 @@ namespace Entities.Concrete
         public Book Book { get; set; }
         public int BookId { get; set; }
 
-        public DateTime HoldDate { get; set; }
+        public DateTime BorrowDate { get; set; }=DateTime.Now;
         public DateTime? ReturnDate { get; set; }
 
         //30 günü geçen kitaplar için ücretlendirme yapılacak

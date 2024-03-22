@@ -1,14 +1,14 @@
 ﻿using Core.DataAccess;
 using Entities.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Entities.Dtos.BorrowedBook;
 
 namespace DataAccess.Abstract
 {
     public interface IBorrowedBookRepository:IEntityRepository<BorrowedBook>
     {
+
+        List<BorrowedBookListDTO> BorrowedBooksWithAuthorAndBookNames();
+
+        List<ReturnedBookListDTO> ReturnedBooksWithAuthorAndBookNames();
     }
 }
