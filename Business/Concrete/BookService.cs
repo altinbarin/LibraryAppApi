@@ -148,11 +148,15 @@ namespace Business.Concrete
             try
             {
                 var book = _bookRepository.Get(books => books.Id == bookUpdateDto.Id && books.Status);
+                var stock = book.TotalStock;
+                var inStock = book.InStock;
+                var updatedStock = bookUpdateDto.TotalStock;
                 if (book == null)
                     return new ErrorResult(Messages.BookNotFound);
 
                 var updatedBook = _mapper.Map<Book>(bookUpdateDto);
                 updatedBook.ModifiedDate = DateTime.Now;
+                updatedBook.InStock += (updatedStock - stock)+ inStock;
 
                 _bookRepository.Update(updatedBook);
 

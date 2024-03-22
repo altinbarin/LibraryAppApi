@@ -48,7 +48,7 @@ namespace Business.ValidationRules.FluentValidation.MemberValidators
         {
             foreach (var item in arg)
             {
-                if (!char.IsLetter(item))
+                if (!char.IsLetter(item) && item!=' ')
                     return false;
             }
             return true;

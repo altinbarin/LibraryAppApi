@@ -33,7 +33,7 @@ namespace Business.Concrete
             try
             {
                 var book = _bookRepository.Get(book => book.Id == borrowedBookCreateDto.BookId && book.Status);
-                var borrowedBooks = _borrowedBookRepository.GetAll(borrowedBook => borrowedBook.MemberId == borrowedBookCreateDto.MemberId).Count;
+                var borrowedBooks = _borrowedBookRepository.GetAll(borrowedBook => borrowedBook.MemberId == borrowedBookCreateDto.MemberId && borrowedBook.ReturnDate == null).Count;
                 if(borrowedBooks >= 3)
                     return new ErrorResult(Messages.MemberCanNotBorrowMoreThanThreeBooks);
 
