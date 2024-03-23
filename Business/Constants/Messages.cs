@@ -105,7 +105,8 @@ namespace Business.Constants
         public const string ThePublisherHasNoBooks = "Bu yayınevine ait kitap bulunamadı";
 
 
-        
+        //Email Messages
+        public const string EmailCanNotBeSend = "E-posta gönderme işlemi başarısız!";
 
     }
 }

@@ -24,6 +24,7 @@ namespace Business.DependencyResolvers
             services.AddScoped<IGenreService, GenreService>();
             services.AddScoped<IMemberService, MemberService>();
             services.AddScoped<IPublisherService, PublisherService>();
+            services.AddScoped<IEmailService, EmailService>();
 
             return services;
         }
