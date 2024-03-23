@@ -47,7 +47,7 @@ namespace Business.Concrete
         {
             try
             {
-                var hasMember = _memberRepository.Get(member => member.Email == memberCreateDto.Email);
+                var hasMember = _memberRepository.Get(member => member.Email == memberCreateDto.Email || member.TCKNO == memberCreateDto.TCKNO);
                 if (hasMember != null)
                     return new ErrorResult(Messages.MemberAlreadyExists);
 
