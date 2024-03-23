@@ -1,10 +1,13 @@
 ﻿using AutoMapper;
+using AutoMapper.Execution;
 using Business.Abstract;
 using Business.Constants;
+using Business.Notifications;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.Dtos.BorrowedBook;
+using Hangfire;
 
 namespace Business.Concrete
 {
@@ -13,14 +16,16 @@ namespace Business.Concrete
         readonly IBorrowedBookRepository _borrowedBookRepository;
         readonly IMapper _mapper;
         readonly IBookRepository _bookRepository;
-        public BorrowedBookService(IBorrowedBookRepository borrowedBookRepository, IMapper mapper, IBookRepository bookRepository)
+        readonly IMemberRepository _memberRepository;
+        public BorrowedBookService(IBorrowedBookRepository borrowedBookRepository, IMapper mapper, IBookRepository bookRepository, IMemberRepository memberRepository)
         {
             _borrowedBookRepository = borrowedBookRepository;
             _mapper = mapper;
             _bookRepository = bookRepository;
+            _memberRepository = memberRepository;
         }
 
-        
+
 
 
         /// <summary>
@@ -34,6 +39,11 @@ namespace Business.Concrete
             {
                 var book = _bookRepository.Get(book => book.Id == borrowedBookCreateDto.BookId && book.Status);
                 var borrowedBooks = _borrowedBookRepository.GetAll(borrowedBook => borrowedBook.MemberId == borrowedBookCreateDto.MemberId && borrowedBook.ReturnDate == null).Count;
+
+                //Mail işlemi için üye bilgileri
+                var member = _memberRepository.Get(member => member.Id == borrowedBookCreateDto.MemberId && member.Status);
+
+
                 if(borrowedBooks >= 3)
                     return new ErrorResult(Messages.MemberCanNotBorrowMoreThanThreeBooks);
 
@@ -47,6 +57,10 @@ namespace Business.Concrete
                     var borrowedBook = _mapper.Map<BorrowedBook>(borrowedBookCreateDto);
                     borrowedBook.ModifiedDate = DateTime.Now;
                     _borrowedBookRepository.Add(borrowedBook);
+
+                    //Hangfire ile e-posta gönderme işlemi sıraya eklenir
+                    SendMail(member.Email, $"{member.Name} {member.Surname}", book.Name);
+
                     return new SuccessResult(Messages.BorrowedBookCreatedSuccessfully);
                 }
                 return new ErrorResult(Messages.BookHasNoStock);
@@ -56,6 +70,25 @@ namespace Business.Concrete
             {
                 return new ErrorResult(Messages.BorrowedBookCanNotBeCreated);
             }
+        }
+
+        /// <summary>
+        /// Kullanıcının kitap ödünç alma işlemi başarılı olduğunda gerekli e posta gönderme işlemlerini yapar.
+        /// </summary>
+        /// <param name="email">Kullanıcı email adresi</param>
+        /// <param name="memberFullName">kullanıcının adı ve soyadı</param>
+        /// <param name="bookName">kullanıcının ödünç aldığı kitabın adı</param>
+        private void SendMail(string email, string memberFullName, string bookName)
+        {
+            //Kitap ödünç alındığında üyeye e-posta gönderilir
+            BackgroundJob.Enqueue<EMailSender>(x => x.SendSuccesfulBorrowingEmail(email,memberFullName, bookName));
+
+            //Kitap ödünç alma süresinin bitişini hatırlatan mail sıraya eklenir (Hangfire)
+            BackgroundJob.Schedule<EMailSender>(x => x.Send25WarningEmail(email, memberFullName, bookName), DateTime.Now.AddMinutes(1));
+
+            //Kitap ödünç alma süresinin bittiğini bildiren mail sıraya eklenir (Hangfire)
+            BackgroundJob.Schedule<EMailSender>(x => x.Send30DaysWarningEmail(email, memberFullName, bookName), DateTime.Now.AddMinutes(2));
+
         }
 
         /// <summary>

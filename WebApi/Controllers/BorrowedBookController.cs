@@ -1,6 +1,5 @@
 ﻿using Business.Abstract;
 using Entities.Dtos.BorrowedBook;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers

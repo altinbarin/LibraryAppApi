@@ -19,6 +19,7 @@ namespace DataAccess.Concrete.EntityFramework
                                  Id = borrowedBook.Id,
                                  BookName = book.Name,
                                  MemberFullName = member.Name + " " + member.Surname,
+                                 MemberEmail = member.Email,
                                  MemberTckno = member.TCKNO,
                                  BorrowDate = borrowedBook.BorrowDate
                              };
