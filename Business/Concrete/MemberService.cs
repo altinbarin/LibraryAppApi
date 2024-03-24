@@ -44,6 +44,7 @@ namespace Business.Concrete
         /// <param name="memberCreateDto">Oluşturulacak üye bilgilerini taşıyan DTO.</param>
         /// <returns><see cref="IResult"/> tipinde işlem sonucunu döner.</returns>
         public IResult Create(MemberCreateDTO memberCreateDto)
+        
         {
             try
             {
