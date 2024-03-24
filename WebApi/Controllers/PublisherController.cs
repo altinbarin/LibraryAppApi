@@ -48,5 +48,6 @@ namespace WebApi.Controllers
             var result = _publisherService.Update(publisherUpdateDto);
             return result.IsSuccess ? Ok(result) : BadRequest(result);
         }
+
     }
 }

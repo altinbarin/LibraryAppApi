@@ -34,5 +34,6 @@ namespace Business.Abstract
         /// <param name="publisherUpdateDto">Güncellenecek yayınevinin verilerini içeren DTO.</param>
         /// <returns>İşlemin başarı durumunu içeren bir sonuç nesnesi döndürür.</returns>
         IResult Update(PublisherUpdateDTO publisherUpdateDto);
+
     }
 }

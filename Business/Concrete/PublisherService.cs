@@ -46,6 +46,7 @@ namespace Business.Concrete
 
         }
 
+
         /// <summary>
         /// Tüm yayın evlerini listeler.
         /// </summary>

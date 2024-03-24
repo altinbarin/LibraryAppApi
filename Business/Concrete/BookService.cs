@@ -28,7 +28,7 @@ namespace Business.Concrete
         {
             try
             {
-                var hasBook = _bookRepository.Get(book => book.Name == bookCreateDto.Name && book.PublisherId == bookCreateDto.PublisherId);
+                var hasBook = _bookRepository.Get(book => book.Name.ToLower() == bookCreateDto.Name.ToLower() && book.PublisherId == bookCreateDto.PublisherId && book.AuthorId == bookCreateDto.AuthorId && book.Status);
                 if (hasBook != null)
                     return new ErrorResult(Messages.BookAlreadyExists);
 
@@ -157,6 +157,8 @@ namespace Business.Concrete
                 var updatedBook = _mapper.Map<Book>(bookUpdateDto);
                 updatedBook.ModifiedDate = DateTime.Now;
                 updatedBook.InStock += (updatedStock - stock)+ inStock;
+                if(updatedBook.TotalStock == 0)
+                    updatedBook.Status = false;
 
                 _bookRepository.Update(updatedBook);
 

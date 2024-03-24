@@ -30,7 +30,7 @@ namespace Business.Constants
         public const string BookListedSuccessfully = "Kitap başarıyla listelendi";
         public const string BookNotFound = "Bu kimliğe sahip kitap bulunamadı";
         public const string BookCanNotCreated = "Kitap oluşturulamadı";
-        public const string BookAlreadyExists = "Bu yayınevine sahip kitap zaten var";
+        public const string BookAlreadyExists = "Bu kitap zaten var";
         public const string BookCreatedSuccessfully = "Kitap başarıyla oluşturuldu";
         public const string BookCanNotUpdated = "Kitap güncellenemedi";
         public const string BookUpdatedSuccessfully = "Kitap başarıyla güncellendi";
